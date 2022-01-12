@@ -31,7 +31,6 @@ type GSSAPIMechanism struct {
 // NewGSSAPIMechanism returns a new GSSAPIMechanism
 func NewGSSAPIMechanism(service string) (mechanism *GSSAPIMechanism, err error) {
 	context := newGSSAPIContext()
-	context.DebugLog = true
 	mechanism = &GSSAPIMechanism{
 		config:           newDefaultConfig("GSSAPI"),
 		service:          service,
@@ -208,6 +207,7 @@ type GSSAPIContext struct {
 //
 func newGSSAPIContext() *GSSAPIContext {
 	var c = &GSSAPIContext{
+		DebugLog: true,
 		reqFlags: uint32(gssapi.GSS_C_INTEG_FLAG) + uint32(gssapi.GSS_C_MUTUAL_FLAG) + uint32(gssapi.GSS_C_SEQUENCE_FLAG) + uint32(gssapi.GSS_C_CONF_FLAG),
 	}
 	prefix := "gosasl-client"
