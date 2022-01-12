@@ -10,7 +10,7 @@ import (
 	"os"
 	"sync"
 
-	"github.com/hffariel/gssapi"
+	"github.com/beltran/gssapi"
 )
 
 // GSSAPIMechanism corresponds to GSSAPI SASL mechanism
