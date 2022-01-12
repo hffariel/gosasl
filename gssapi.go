@@ -31,6 +31,7 @@ type GSSAPIMechanism struct {
 // NewGSSAPIMechanism returns a new GSSAPIMechanism
 func NewGSSAPIMechanism(service string) (mechanism *GSSAPIMechanism, err error) {
 	context := newGSSAPIContext()
+	context.DebugLog = true
 	mechanism = &GSSAPIMechanism{
 		config:           newDefaultConfig("GSSAPI"),
 		service:          service,
